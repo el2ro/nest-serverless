@@ -9,7 +9,7 @@ const swaggerBaseConfig = new DocumentBuilder()
     .setTitle('sample-api')
     .setDescription('api')
     .setVersion('1.0')
-    .setSchemes('https')
+    // .setSchemes('https')
     .build();
 
 async function startLocal() {

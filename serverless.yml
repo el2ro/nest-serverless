@@ -3,6 +3,7 @@ service:
 
 plugins:
   - serverless-plugin-typescript
+# - serverless-plugin-warmup
   - serverless-offline
   - serverless-plugin-optimize
 
@@ -11,8 +12,8 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs10.x
-  region: eu-central-1
+  runtime: nodejs12.x
+  region: us-east-2
 
 functions:
   main:
