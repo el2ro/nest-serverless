@@ -27,6 +27,23 @@ ws://localhost:3001
 
 To test those
 
-curl http://localhost:3000/dev/test
+`curl http://localhost:3000/dev/fastify`
+or
+`curl http://localhost:3000/dev/serverless`
 
-wscat -c ws://localhost:3001
+To Test WS endpoint use
+
+`npm install -g wscat`
+
+`wscat -c ws://localhost:3001`
+
+To change between aws-lambda-fastify and serverless-fastify
+
+Comment out the right handler from the serverless.yml file
+
+```
+    ws:
+        # To test other
+        # handler: src/aws-lambda-fastify.handler
+        handler: src/serverless-fastify.handler
+```

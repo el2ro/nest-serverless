@@ -28,6 +28,7 @@
     "@nestjs/platform-fastify": "^7.2.0",
     "aws-lambda": "^1.0.6",
     "aws-lambda-fastify": "^1.4.3",
+    "aws-serverless-fastify": "^1.0.17",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "reflect-metadata": "^0.1.13",

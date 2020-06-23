@@ -15,18 +15,21 @@ provider:
 
 functions:
   main:
-    handler: src/lambda.handler
+    handler: src/aws-lambda-fastify.handler
     events:
+      # - http:
+      #     cors: true
+      #     path: '{proxy+}'
+      #     method: any
       - http:
           cors: true
-          path: '{proxy+}'
+          path: '/fastify'
           method: any
-      - http:
-          cors: true
-          path: '/'
-          method: any
+
   ws:
-    handler: src/lambda.handler
+    # To test other
+    # handler: src/aws-lambda-fastify.handler
+    handler: src/serverless-fastify.handler
     events:
       - websocket:
           route: $disconnect
@@ -36,6 +39,14 @@ functions:
           route: $default
       - websocket:
           route: definedroute
+
+  newHttpApi:
+    handler: src/serverless-fastify.handler
+    events:
+      - httpApi:
+          method: '*'
+          path: /serverless/{proxy+}
+          cors: true
 
 package:
   individually: true
