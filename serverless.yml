@@ -3,9 +3,7 @@ service:
 
 plugins:
   - serverless-plugin-typescript
-# - serverless-plugin-warmup
   - serverless-offline
-  - serverless-plugin-optimize
 
 custom:
   stage: ${opt:stage, self:provider.stage}
@@ -21,12 +19,23 @@ functions:
     events:
       - http:
           cors: true
-          path: "{proxy+}"
+          path: '{proxy+}'
           method: any
       - http:
           cors: true
-          path: "/"
+          path: '/'
           method: any
+  ws:
+    handler: src/lambda.handler
+    events:
+      - websocket:
+          route: $disconnect
+      - websocket:
+          route: $connect
+      - websocket:
+          route: $default
+      - websocket:
+          route: definedroute
 
 package:
   individually: true
